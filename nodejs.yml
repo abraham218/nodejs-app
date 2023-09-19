@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: node-dep
+  name: node-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-dep
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: node-dep
+    spec:
+      containers:
+      - image: abramdocker/nodejs-web-app:v1
+        name: nodejs-web-app
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: node-dep
+  name: node-dep
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: node-dep
+  type: NodePort
+status:
+  loadBalancer: {}
