@@ -4,4 +4,4 @@ env | sort
 D=$(date '+%Y-%m-%d-%H-%M-%S')
  
 #/workspace/jenkins/scoutsuit/bin/scout aws --profile $P || echo "ignore scoutsuite return code $?"
-/workspace/jenkins/scoutsuit/bin/scout aws --profile $profile || echo "ignore scoutsuite return code $?"
+/workspace2023/scoutsuite/bin/scout aws --profile $profile || echo "ignore scoutsuite return code $?"
